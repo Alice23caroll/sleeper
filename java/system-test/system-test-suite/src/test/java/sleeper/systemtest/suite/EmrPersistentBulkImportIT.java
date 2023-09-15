@@ -23,10 +23,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 import sleeper.cdk.stack.bulkimport.PersistentEmrBulkImportStack;
+import sleeper.core.util.PollWithRetries;
 import sleeper.systemtest.suite.dsl.SleeperSystemTest;
 import sleeper.systemtest.suite.fixtures.SystemTestSchema;
 import sleeper.systemtest.suite.testutil.ReportingExtension;
 
+import java.time.Duration;
 import java.util.stream.LongStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -73,7 +75,7 @@ public class EmrPersistentBulkImportIT {
         // When
         sleeper.ingest().byQueue()
                 .sendSourceFiles(BULK_IMPORT_PERSISTENT_EMR_JOB_QUEUE_URL, "test.parquet")
-                .waitForJobs();
+                .waitForJobs(PollWithRetries.intervalAndPollingTimeout(Duration.ofSeconds(30), Duration.ofMinutes(30)));
 
         // Then
         assertThat(sleeper.directQuery().allRecordsInTable())
