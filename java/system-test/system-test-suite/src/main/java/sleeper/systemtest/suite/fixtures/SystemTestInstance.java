@@ -41,6 +41,12 @@ import static sleeper.configuration.properties.instance.CompactionProperty.COMPA
 import static sleeper.configuration.properties.instance.CompactionProperty.COMPACTION_TASK_X86_CPU;
 import static sleeper.configuration.properties.instance.CompactionProperty.COMPACTION_TASK_X86_MEMORY;
 import static sleeper.configuration.properties.instance.CompactionProperty.MAXIMUM_CONCURRENT_COMPACTION_TASKS;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_DRIVER_CORES;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_YARN_DRIVER_MEMORY_OVERHEAD;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_YARN_EXECUTOR_MEMORY_OVERHEAD;
 import static sleeper.configuration.properties.instance.IngestProperty.INGEST_PARTITION_FILE_WRITER_TYPE;
 import static sleeper.configuration.properties.instance.IngestProperty.INGEST_RECORD_BATCH_TYPE;
 import static sleeper.configuration.properties.instance.IngestProperty.MAXIMUM_CONCURRENT_INGEST_TASKS;
@@ -89,6 +95,12 @@ public enum SystemTestInstance {
                 "CompactionStack,GarbageCollectorStack,PartitionSplittingStack,QueryStack");
         properties.set(RETAIN_INFRA_AFTER_DESTROY, "false");
         properties.set(FORCE_RELOAD_PROPERTIES, "true");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES, "2");
+        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_CORES, "2");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY, "8g");
+        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY, "8g");
+        properties.set(BULK_IMPORT_EMR_SPARK_YARN_EXECUTOR_MEMORY_OVERHEAD, "1g");
+        properties.set(BULK_IMPORT_EMR_SPARK_YARN_DRIVER_MEMORY_OVERHEAD, "1g");
         properties.set(DEFAULT_BULK_IMPORT_EMR_MASTER_X86_INSTANCE_TYPES, MAIN_EMR_INSTANCE_TYPES);
         properties.set(DEFAULT_BULK_IMPORT_EMR_EXECUTOR_X86_INSTANCE_TYPES, MAIN_EMR_INSTANCE_TYPES);
         properties.set(MAXIMUM_CONCURRENT_INGEST_TASKS, "1");
