@@ -175,6 +175,14 @@ public enum SystemTestInstance {
         properties.set(OPTIONAL_STACKS, "EmrBulkImportStack");
         properties.set(DEFAULT_BULK_IMPORT_EMR_MAX_EXECUTOR_CAPACITY, "5");
         properties.set(MAXIMUM_CONNECTIONS_TO_S3, "25");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES, "5");
+        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_CORES, "5");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY, "16g");
+        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY, "16g");
+        properties.set(BULK_IMPORT_EMR_SPARK_YARN_EXECUTOR_MEMORY_OVERHEAD, "2g");
+        properties.set(BULK_IMPORT_EMR_SPARK_YARN_DRIVER_MEMORY_OVERHEAD, "2g");
+        properties.set(DEFAULT_BULK_IMPORT_EMR_MASTER_X86_INSTANCE_TYPES, "m6i.xlarge");
+        properties.set(DEFAULT_BULK_IMPORT_EMR_EXECUTOR_X86_INSTANCE_TYPES, "m6g.xlarge");
         Map<String, String> tags = new HashMap<>(properties.getTags());
         tags.put("SystemTestInstance", "bulkImportPerformance");
         tags.put("Description", "Sleeper Maven system test bulk import performance instance");
