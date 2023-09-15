@@ -44,6 +44,7 @@ import static sleeper.configuration.properties.instance.CompactionProperty.MAXIM
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_DRIVER_CORES;
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY;
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES;
+import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_EXECUTOR_INSTANCES;
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY;
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_YARN_DRIVER_MEMORY_OVERHEAD;
 import static sleeper.configuration.properties.instance.EMRProperty.BULK_IMPORT_EMR_SPARK_YARN_EXECUTOR_MEMORY_OVERHEAD;
@@ -95,10 +96,11 @@ public enum SystemTestInstance {
                 "CompactionStack,GarbageCollectorStack,PartitionSplittingStack,QueryStack");
         properties.set(RETAIN_INFRA_AFTER_DESTROY, "false");
         properties.set(FORCE_RELOAD_PROPERTIES, "true");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_INSTANCES, "1");
         properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES, "2");
         properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_CORES, "2");
-        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY, "8g");
-        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY, "8g");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY, "7g");
+        properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_MEMORY, "7g");
         properties.set(BULK_IMPORT_EMR_SPARK_YARN_EXECUTOR_MEMORY_OVERHEAD, "1g");
         properties.set(BULK_IMPORT_EMR_SPARK_YARN_DRIVER_MEMORY_OVERHEAD, "1g");
         properties.set(DEFAULT_BULK_IMPORT_EMR_MASTER_X86_INSTANCE_TYPES, MAIN_EMR_INSTANCE_TYPES);
@@ -175,6 +177,7 @@ public enum SystemTestInstance {
         properties.set(OPTIONAL_STACKS, "EmrBulkImportStack");
         properties.set(DEFAULT_BULK_IMPORT_EMR_MAX_EXECUTOR_CAPACITY, "5");
         properties.set(MAXIMUM_CONNECTIONS_TO_S3, "25");
+        properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_INSTANCES, "29");
         properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_CORES, "5");
         properties.set(BULK_IMPORT_EMR_SPARK_DRIVER_CORES, "5");
         properties.set(BULK_IMPORT_EMR_SPARK_EXECUTOR_MEMORY, "16g");
