@@ -50,7 +50,7 @@ import static sleeper.systemtest.suite.fixtures.SystemTestSchema.ROW_KEY_FIELD_N
 
 @SystemTest
 public class ParallelCompactionsIT {
-    public static final int NUMBER_OF_COMPACTIONS = 5;
+    public static final int NUMBER_OF_COMPACTIONS = 1000;
     private final Schema schema = DEFAULT_SCHEMA;
     @TempDir
     private Path tempDir;
