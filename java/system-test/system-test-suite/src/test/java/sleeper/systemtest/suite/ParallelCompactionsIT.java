@@ -26,6 +26,7 @@ import sleeper.core.record.Record;
 import sleeper.core.schema.Schema;
 import sleeper.core.util.PollWithRetries;
 import sleeper.systemtest.dsl.SleeperSystemTest;
+import sleeper.systemtest.suite.testutil.Slow;
 import sleeper.systemtest.suite.testutil.SystemTest;
 
 import java.nio.file.Path;
@@ -50,6 +51,7 @@ import static sleeper.systemtest.suite.fixtures.SystemTestSchema.DEFAULT_SCHEMA;
 import static sleeper.systemtest.suite.fixtures.SystemTestSchema.ROW_KEY_FIELD_NAME;
 
 @SystemTest
+@Slow
 public class ParallelCompactionsIT {
     public static final int NUMBER_OF_COMPACTIONS = 1000;
     private final Schema schema = DEFAULT_SCHEMA;
