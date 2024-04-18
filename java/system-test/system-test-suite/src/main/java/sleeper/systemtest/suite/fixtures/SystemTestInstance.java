@@ -175,6 +175,7 @@ public class SystemTestInstance {
     private static DeployInstanceConfiguration buildCompactionOnEC2Configuration() {
         DeployInstanceConfiguration configuration = buildMainConfiguration();
         InstanceProperties properties = configuration.getInstanceProperties();
+        properties.set(OPTIONAL_STACKS, "CompactionStack");
         properties.set(COMPACTION_ECS_LAUNCHTYPE, "EC2");
 
         Map<String, String> tags = new HashMap<>(properties.getTags());
@@ -187,6 +188,7 @@ public class SystemTestInstance {
     private static DeployInstanceConfiguration buildCompactionInParallelConfiguration() {
         DeployInstanceConfiguration configuration = buildMainConfiguration();
         InstanceProperties properties = configuration.getInstanceProperties();
+        properties.set(OPTIONAL_STACKS, "CompactionStack");
         properties.set(COMPACTION_TASK_MAX_IDLE_TIME_IN_SECONDS, "600");
 
         Map<String, String> tags = new HashMap<>(properties.getTags());
